@@ -501,13 +501,13 @@ namespace SharpWordNet
             public PosDataFileSet(string dataFolder, string partOfSpeech)
             {
 #if DNF
-                _indexFile = new StreamReader(dataFolder + "\\index." + partOfSpeech);
-                _dataFile = new StreamReader(dataFolder + "\\data." + partOfSpeech);
-                _exceptionFile = new StreamReader(dataFolder + "\\" + partOfSpeech + ".exc");
+                _indexFile = new StreamReader(Path.Combine(dataFolder, "index." + partOfSpeech));
+                _dataFile = new StreamReader(Path.Combine(dataFolder, "data." + partOfSpeech));
+                _exceptionFile = new StreamReader(Path.Combine(dataFolder, partOfSpeech + ".exc"));
 #else
-                _indexFile = new StreamReader(new FileStream(dataFolder + "\\index." + partOfSpeech, FileMode.Open));
-                _dataFile = new StreamReader(new FileStream(dataFolder + "\\data." + partOfSpeech, FileMode.Open));
-                _exceptionFile = new StreamReader(new FileStream(dataFolder + "\\" + partOfSpeech + ".exc", FileMode.Open));
+                _indexFile = new StreamReader(new FileStream(Path.Combine(dataFolder, "index." + partOfSpeech), FileMode.Open));
+                _dataFile = new StreamReader(new FileStream(Path.Combine(dataFolder, "data." + partOfSpeech), FileMode.Open));
+                _exceptionFile = new StreamReader(new FileStream(Path.Combine(dataFolder, partOfSpeech + ".exc"), FileMode.Open));
 #endif
             }
         }
