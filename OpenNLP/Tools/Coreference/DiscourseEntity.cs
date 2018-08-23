@@ -42,7 +42,7 @@ namespace OpenNLP.Tools.Coreference
     /// </summary>
 	public class DiscourseEntity : DiscourseElement
 	{
-        private Util.Set<string> mSynsets;
+        private Util.Set<string> mSynsets = new Util.Set<string>();
 		
 		/// <summary>
         /// The semantic category of this entity.  This field is used to associated named-entity categories with an entity.

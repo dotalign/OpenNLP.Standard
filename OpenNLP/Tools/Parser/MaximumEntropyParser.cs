@@ -120,7 +120,7 @@ namespace OpenNLP.Tools.Parser
         private readonly int completeIndex;
 		private readonly int incompleteIndex;
 
-	    private const bool CreateDerivationString = false;
+	    //private const bool CreateDerivationString = false;
 
 
         // Constructors -------------------------
@@ -223,10 +223,10 @@ namespace OpenNLP.Tools.Parser
 		/// </returns>
 		public virtual Parse[] FullParse(Parse flatParse, int parseCount)
 		{
-			if (CreateDerivationString) 
-			{
-				flatParse.InitializeDerivationBuffer();
-			}
+			//if (CreateDerivationString) 
+			//{
+			//	flatParse.InitializeDerivationBuffer();
+			//}
 
             var oldDerivationsHeap = new Util.SortedSet<Parse>();
             var parses = new Util.SortedSet<Parse>();
@@ -446,11 +446,11 @@ namespace OpenNLP.Tools.Parser
 					}
 				}
 				var newParse1 = (Parse) inputParse.Clone(); //clone parse
-				if (CreateDerivationString)
-				{
-					newParse1.AppendDerivationBuffer(highestBuildProbabilityIndex.ToString(System.Globalization.CultureInfo.InvariantCulture));
-					newParse1.AppendDerivationBuffer("-");
-				}
+				//if (CreateDerivationString)
+				//{
+				//	newParse1.AppendDerivationBuffer(highestBuildProbabilityIndex.ToString(System.Globalization.CultureInfo.InvariantCulture));
+				//	newParse1.AppendDerivationBuffer("-");
+				//}
 				newParse1.SetChild(advanceNodeIndex, tag); //replace constituent labeled
 
 				newParse1.AddProbability(Math.Log(highestBuildProbability));
@@ -461,11 +461,11 @@ namespace OpenNLP.Tools.Parser
 				if (checkProbabilities[completeIndex] > qOpp) 
 				{ //make sure a reduce is likely
 					newParse2 = (Parse) newParse1.Clone();
-					if (CreateDerivationString)
-					{
-						newParse2.AppendDerivationBuffer("1");
-						newParse2.AppendDerivationBuffer(".");
-					}
+					//if (CreateDerivationString)
+					//{
+					//	newParse2.AppendDerivationBuffer("1");
+					//	newParse2.AppendDerivationBuffer(".");
+					//}
 					newParse2.AddProbability(System.Math.Log(checkProbabilities[1]));
 					var constituent = new Parse[advanceNodeIndex - lastStartIndex + 1];
 					bool isFlat = true;
@@ -498,11 +498,11 @@ namespace OpenNLP.Tools.Parser
 				}
 				if (checkProbabilities[incompleteIndex] > qOpp) 
 				{ //make sure a shift is likely
-					if (CreateDerivationString)
-					{
-						newParse1.AppendDerivationBuffer("0");
-						newParse1.AppendDerivationBuffer(".");
-					}
+					//if (CreateDerivationString)
+					//{
+					//	newParse1.AppendDerivationBuffer("0");
+					//	newParse1.AppendDerivationBuffer(".");
+					//}
 					if (advanceNodeIndex != nodeCount - 1) 
 					{ //can't shift last element
 						newParse1.AddProbability(Math.Log(checkProbabilities[0]));
@@ -545,11 +545,11 @@ namespace OpenNLP.Tools.Parser
 			for (int sequenceIndex = 0, sequenceCount = chunkerSequences.Length; sequenceIndex < sequenceCount; sequenceIndex++) 
 			{
 				newParses[sequenceIndex] = (Parse) inputParse.Clone(); //copies top level
-				if (CreateDerivationString)
-				{
-					newParses[sequenceIndex].AppendDerivationBuffer(sequenceIndex.ToString(System.Globalization.CultureInfo.InvariantCulture));
-					newParses[sequenceIndex].AppendDerivationBuffer(".");
-				}
+				//if (CreateDerivationString)
+				//{
+				//	newParses[sequenceIndex].AppendDerivationBuffer(sequenceIndex.ToString(System.Globalization.CultureInfo.InvariantCulture));
+				//	newParses[sequenceIndex].AppendDerivationBuffer(".");
+				//}
 				string[] tags = chunkerSequences[sequenceIndex].Outcomes.ToArray();
 				chunkerSequences[sequenceIndex].GetProbabilities(probabilities);
 				int start = -1;
@@ -640,11 +640,11 @@ namespace OpenNLP.Tools.Parser
 				string[] tags = tagSequences[tagSequenceIndex].Outcomes.ToArray();
 				tagSequences[tagSequenceIndex].GetProbabilities(probabilities);
 				newParses[tagSequenceIndex] = (Parse) inputParse.Clone(); //copies top level
-				if (CreateDerivationString)
-				{
-					newParses[tagSequenceIndex].AppendDerivationBuffer(tagSequenceIndex.ToString(System.Globalization.CultureInfo.InvariantCulture));
-					newParses[tagSequenceIndex].AppendDerivationBuffer(".");
-				}
+				//if (CreateDerivationString)
+				//{
+				//	newParses[tagSequenceIndex].AppendDerivationBuffer(tagSequenceIndex.ToString(System.Globalization.CultureInfo.InvariantCulture));
+				//	newParses[tagSequenceIndex].AppendDerivationBuffer(".");
+				//}
 				for (int wordIndex = 0; wordIndex < words.Length; wordIndex++) 
 				{
 					Parse wordParse = children[wordIndex];

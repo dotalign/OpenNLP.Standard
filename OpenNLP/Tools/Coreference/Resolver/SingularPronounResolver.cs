@@ -47,10 +47,6 @@ namespace OpenNLP.Tools.Coreference.Resolver
 	public class SingularPronounResolver:MaximumEntropyResolver
 	{
 		
-		internal int Mode;
-		
-		internal Regex PronounPattern;
-		
 		public SingularPronounResolver(string projectName, ResolverMode mode):base(projectName, "pmodel", mode, 30)
 		{
 			NumberSentencesBack = 2;

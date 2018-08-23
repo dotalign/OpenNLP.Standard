@@ -164,14 +164,6 @@ namespace OpenNLP.Tools.Util
            return it.hasNext() ? finishToArray(r, it) : r;
        }*/
 
-        /// <summary>
-        /// The maximum size of array to allocate.
-        /// Some VMs reserve some header words in an array.
-        /// Attempts to allocate larger arrays may result in
-        /// OutOfMemoryError: Requested array size exceeds VM limit
-        /// </summary>
-        private static readonly int MaxArraySize = int.MaxValue - 8;
-
         /**
         * Reallocates the array being used within toArray when the iterator
         * returned more elements than expected, and finishes filling it from

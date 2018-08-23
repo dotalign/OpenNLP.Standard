@@ -211,10 +211,10 @@ namespace OpenNLP.Tools.Coreference.Resolver
 			DiscourseEntity discourseEntity;
 			int entityIndex = 0;
 			double nonReferentialProbability = NonReferentialResolver.GetNonReferentialProbability(expression);
-			if (DebugOn)
-			{
-				System.Console.Error.WriteLine(this.ToString() + ".resolve: " + expression.ToText() + " -> " + "null " + nonReferentialProbability);
-			}
+			//if (DebugOn)
+			//{
+			//	System.Console.Error.WriteLine(this.ToString() + ".resolve: " + expression.ToText() + " -> " + "null " + nonReferentialProbability);
+			//}
 			for (; entityIndex < GetNumberEntitiesBack(discourseModel); entityIndex++)
 			{
 				discourseEntity = discourseModel.GetEntity(entityIndex);
@@ -225,10 +225,10 @@ namespace OpenNLP.Tools.Coreference.Resolver
 				if (IsExcluded(expression, discourseEntity))
 				{
 					_candidateProbabilities[entityIndex] = 0;
-					if (DebugOn)
-					{
-						Console.Error.WriteLine("excluded " + this.ToString() + ".resolve: " + expression.ToText() + " -> " + discourseEntity + " " + _candidateProbabilities[entityIndex]);
-					}
+					//if (DebugOn)
+					//{
+					//	Console.Error.WriteLine("excluded " + this.ToString() + ".resolve: " + expression.ToText() + " -> " + discourseEntity + " " + _candidateProbabilities[entityIndex]);
+					//}
 				}
 				else
 				{
@@ -241,10 +241,10 @@ namespace OpenNLP.Tools.Coreference.Resolver
 					{
 						_candidateProbabilities[entityIndex] = 0;
 					}
-					if (DebugOn)
-					{
-						Console.Error.WriteLine(this + ".resolve: " + expression.ToText() + " -> " + discourseEntity + " (" + expression.GetGender() + "," + discourseEntity.Gender + ") " + _candidateProbabilities[entityIndex] + " " + string.Join(",", features)); //SupportClass.CollectionToString(lfeatures));
-					}
+					//if (DebugOn)
+					//{
+					//	Console.Error.WriteLine(this + ".resolve: " + expression.ToText() + " -> " + discourseEntity + " (" + expression.GetGender() + "," + discourseEntity.Gender + ") " + _candidateProbabilities[entityIndex] + " " + string.Join(",", features)); //SupportClass.CollectionToString(lfeatures));
+					//}
 				}
 				if (PreferFirstReferent && _candidateProbabilities[entityIndex] > nonReferentialProbability)
 				{
@@ -344,10 +344,10 @@ namespace OpenNLP.Tools.Coreference.Resolver
 						List<string> features = GetFeatures(mention, currentDiscourseEntity);
 						
 						//add Event to Model
-						if (DebugOn)
-						{
-							Console.Error.WriteLine(this + ".retain: " + mention.Id + " " + mention.ToText() + " -> " + entityMention.Id + " " + currentDiscourseEntity);
-						}
+						//if (DebugOn)
+						//{
+						//	Console.Error.WriteLine(this + ".retain: " + mention.Id + " " + mention.ToText() + " -> " + entityMention.Id + " " + currentDiscourseEntity);
+						//}
 						if (mention.Id != - 1 && entityMention.Id == mention.Id)
 						{
 							referentFound = true;
@@ -420,28 +420,28 @@ namespace OpenNLP.Tools.Coreference.Resolver
 		{
 			if (_resolverMode == ResolverMode.Train)
 			{
-				if (DebugOn)
-				{
-					System.Console.Error.WriteLine(this.ToString() + " referential");
-#if DNF
-                    using (var writer = new System.IO.StreamWriter(_modelName + ".events", false, System.Text.Encoding.Default))
-#else
-                    using (var stream = new FileStream(_modelName + ".events", FileMode.OpenOrCreate))
-                    using (var writer = new System.IO.StreamWriter(stream, System.Text.Encoding.GetEncoding(0)))
-#endif
-                    {
-                        foreach (SharpEntropy.TrainingEvent e in _events)
-                        {
-                            writer.Write(e.ToString() + "\n");
-                        }
-#if DNF
-                        writer.Close();
-#else
-                        writer.Dispose();
-                        stream.Dispose();
-#endif
-                    }
-				}
+//				if (DebugOn)
+//				{
+//					System.Console.Error.WriteLine(this.ToString() + " referential");
+//#if DNF
+//                    using (var writer = new System.IO.StreamWriter(_modelName + ".events", false, System.Text.Encoding.Default))
+//#else
+//                    using (var stream = new FileStream(_modelName + ".events", FileMode.OpenOrCreate))
+//                    using (var writer = new System.IO.StreamWriter(stream, System.Text.Encoding.GetEncoding(0)))
+//#endif
+//                    {
+//                        foreach (SharpEntropy.TrainingEvent e in _events)
+//                        {
+//                            writer.Write(e.ToString() + "\n");
+//                        }
+//#if DNF
+//                        writer.Close();
+//#else
+//                        writer.Dispose();
+//                        stream.Dispose();
+//#endif
+//                    }
+//				}
 
                 var trainer = new SharpEntropy.GisTrainer();
                 trainer.TrainModel(new Util.CollectionEventReader(_events), 100, 10);
@@ -459,10 +459,10 @@ namespace OpenNLP.Tools.Coreference.Resolver
                 foreach (Mention.MentionContext checkEntityContext in discourseEntity.Mentions)
 				{
 					double sim = SimilarityModel.AreCompatible(entityContext, checkEntityContext);
-					if (DebugOn)
-					{
-						Console.Error.WriteLine("MaxentResolver.GetSemanticCompatibilityFeature: sem-compat " + sim + " " + entityContext.ToText() + " " + checkEntityContext.ToText());
-					}
+					//if (DebugOn)
+					//{
+					//	Console.Error.WriteLine("MaxentResolver.GetSemanticCompatibilityFeature: sem-compat " + sim + " " + entityContext.ToText() + " " + checkEntityContext.ToText());
+					//}
 					if (sim > best)
 					{
 						best = sim;

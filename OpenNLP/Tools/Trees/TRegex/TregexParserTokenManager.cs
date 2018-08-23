@@ -119,7 +119,7 @@ namespace OpenNLP.Tools.Trees.TRegex
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch (IOException e)
+            catch (IOException)
             {
                 JjStopStringLiteralDfa_0(0, active0);
                 return 1;

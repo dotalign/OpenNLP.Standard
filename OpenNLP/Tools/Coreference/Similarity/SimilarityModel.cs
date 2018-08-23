@@ -137,10 +137,10 @@ namespace OpenNLP.Tools.Coreference.Similarity
 							allExtentsIndex = (allExtentsIndex + 1) % allExtents.Count;
 							if (!exclusionSet.Contains(compareEntityContext))
 							{
-								if (DebugOn)
-								{
-									System.Console.Error.WriteLine(firstEntityContext.ToString() + " " + string.Join(",", entityNameSet.ToArray()) + " " + compareEntityContext.ToString() + " " + nameSets[compareEntityContext.Id]);
-								}
+								//if (DebugOn)
+								//{
+								//	System.Console.Error.WriteLine(firstEntityContext.ToString() + " " + string.Join(",", entityNameSet.ToArray()) + " " + compareEntityContext.ToString() + " " + nameSets[compareEntityContext.Id]);
+								//}
 								AddEvent(false, firstEntityContext, compareEntityContext);
 								break;
 							}
@@ -410,34 +410,34 @@ namespace OpenNLP.Tools.Coreference.Similarity
 		public virtual double AreCompatible(Context firstMention, Context secondMention)
 		{
 			List<string> features = GetFeatures(firstMention, secondMention);
-            if (DebugOn)
-            {
-                Console.Error.WriteLine("SimilarityModel.compatible: feats=" + string.Join(",", features.ToArray()));
-            }
+            //if (DebugOn)
+            //{
+            //    Console.Error.WriteLine("SimilarityModel.compatible: feats=" + string.Join(",", features.ToArray()));
+            //}
             return _testModel.Evaluate(features.ToArray())[_sameIndex];
 		}
 		
 		/// <summary>Train a model based on the previously supplied evidence</summary>
 		public virtual void TrainModel()
 		{
-			if (DebugOn)
-			{
-#if DNF
-                var writer = new System.IO.StreamWriter(ModelName + ".events", false, System.Text.Encoding.Default);
-#else
-			    var writer = new System.IO.StreamWriter(new FileStream(ModelName + ".events", FileMode.OpenOrCreate),
-			        System.Text.Encoding.GetEncoding(0));
-#endif
-                foreach (SharpEntropy.TrainingEvent trainingEvent in _events)
-                {
-					writer.Write(trainingEvent + "\n");
-				}
-#if DNF
-                writer.Close();
-#else
-                writer.Dispose();
-#endif
-            }
+//			if (DebugOn)
+//			{
+//#if DNF
+//                var writer = new System.IO.StreamWriter(ModelName + ".events", false, System.Text.Encoding.Default);
+//#else
+//			    var writer = new System.IO.StreamWriter(new FileStream(ModelName + ".events", FileMode.OpenOrCreate),
+//			        System.Text.Encoding.GetEncoding(0));
+//#endif
+//                foreach (SharpEntropy.TrainingEvent trainingEvent in _events)
+//                {
+//					writer.Write(trainingEvent + "\n");
+//				}
+//#if DNF
+//                writer.Close();
+//#else
+//                writer.Dispose();
+//#endif
+//            }
 
             var trainer = new SharpEntropy.GisTrainer();
             trainer.TrainModel(new Util.CollectionEventReader(_events), 100, 10);
