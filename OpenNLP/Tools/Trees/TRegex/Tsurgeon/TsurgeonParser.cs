@@ -41,7 +41,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                     case AdjoinToFoot:
                     case Coindex:
                     {
-                        result = Operation();
+                        result = GetOperation();
                         JjTree.CloseNodeScope(jjtn000, true);
                         jjtc000 = false;
                         return new TsurgeonPatternRoot(result);
@@ -149,14 +149,14 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             }
         }
 
-        public TsurgeonPattern Operation()
+        public TsurgeonPattern GetOperation()
         {
             /*@bgen(jjtree) Operation */
             var jjtn000 = new SimpleNode(JjtOperation);
             bool jjtc000 = true;
             JjTree.OpenNodeScope(jjtn000);
             Token operatorToken;
-            Token hashInt;
+
             try
             {
                 TsurgeonPattern child1;
@@ -826,7 +826,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 return !Jj_3_1();
             }
-            catch (LookaheadSuccess ls)
+            catch (LookaheadSuccess)
             {
                 return true;
             }
@@ -844,7 +844,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 return !Jj_3_2();
             }
-            catch (LookaheadSuccess ls)
+            catch (LookaheadSuccess)
             {
                 return true;
             }
@@ -862,7 +862,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 return !Jj_3_3();
             }
-            catch (LookaheadSuccess ls)
+            catch (LookaheadSuccess)
             {
                 return true;
             }
@@ -880,7 +880,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 return !Jj_3_4();
             }
-            catch (LookaheadSuccess ls)
+            catch (LookaheadSuccess)
             {
                 return true;
             }
@@ -898,7 +898,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 return !Jj_3_5();
             }
-            catch (LookaheadSuccess ls)
+            catch (LookaheadSuccess)
             {
                 return true;
             }
@@ -916,7 +916,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 return !Jj_3_6();
             }
-            catch (LookaheadSuccess ls)
+            catch (LookaheadSuccess)
             {
                 return true;
             }
@@ -934,7 +934,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 return !Jj_3_7();
             }
-            catch (LookaheadSuccess ls)
+            catch (LookaheadSuccess)
             {
                 return true;
             }
@@ -952,7 +952,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 return !Jj_3_8();
             }
-            catch (LookaheadSuccess ls)
+            catch (LookaheadSuccess)
             {
                 return true;
             }
@@ -970,7 +970,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 return !Jj_3_9();
             }
-            catch (LookaheadSuccess ls)
+            catch (LookaheadSuccess)
             {
                 return true;
             }
@@ -988,7 +988,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 return !Jj_3_10();
             }
-            catch (LookaheadSuccess ls)
+            catch (LookaheadSuccess)
             {
                 return true;
             }
@@ -1550,7 +1550,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                         p = p.Next;
                     } while (p != null);
                 }
-                catch (LookaheadSuccess ls)
+                catch (LookaheadSuccess)
                 {
                 }
             }

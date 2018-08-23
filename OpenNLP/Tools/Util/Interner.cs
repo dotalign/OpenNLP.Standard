@@ -57,7 +57,7 @@ namespace OpenNLP.Tools.Util
         /// If o itself is returned, this is the first request for an object
         /// .equals to o.
         /// </summary>
-        public static T GlobalIntern<T>(T o)
+        public static T GlobalIntern(T o)
         {
             return (T) GetGlobal().Intern(o);
         }

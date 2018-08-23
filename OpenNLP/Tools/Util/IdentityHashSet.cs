@@ -98,7 +98,7 @@ namespace OpenNLP.Tools.Util
         /// <summary>
         /// Removes all of the elements from this set.
         /// </summary>
-        public void Clear()
+        public new void Clear()
         {
             map.Clear();
         }
@@ -124,7 +124,7 @@ namespace OpenNLP.Tools.Util
         /// </summary>
         /// <param name="o">Element whose presence in this set is to be</param>
         /// <returns><code>true</code> if this set contains the specified element.</returns>
-        public bool Contains(T o)
+        public new bool Contains(T o)
         {
             return map.ContainsKey(o);
         }
