@@ -34,9 +34,9 @@ namespace OpenNLP.Tools.Util
         /// callers can call this method with apparent type safety because this
         /// method takes the hit for the cast.
         /// </summary>
-        public static /*<K,V>*/ MapFactory<K, V> hashMapFactory<K, V>()
+        public static /*<K,V>*/ MapFactory<L, W> hashMapFactory<L, W>()
         {
-            return new HashMapFactory<K, V>();
+            return new HashMapFactory<L, W>();
         }
 
         /** Return a MapFactory that returns an IdentityHashMap.
@@ -89,9 +89,9 @@ namespace OpenNLP.Tools.Util
         /// callers can call this method with apparent type safety because this
         /// method takes the hit for the cast.
         /// </summary>
-        public static /*<K,V>*/ MapFactory<K, V> linkedHashMapFactory<K, V>()
+        public static /*<K,V>*/ MapFactory<L, W> linkedHashMapFactory<L, W>()
         {
-            return new LinkedHashMapFactory<K, V>();
+            return new LinkedHashMapFactory<L, W>();
         }
 
         /// <summary>
@@ -101,28 +101,28 @@ namespace OpenNLP.Tools.Util
         /// callers can call this method with apparent type safety because this
         /// method takes the hit for the cast.
         /// </summary>
-        public static /*<K,V>*/ MapFactory<K, V> arrayMapFactory<K, V>()
+        public static /*<K,V>*/ MapFactory<L, W> arrayMapFactory<L, W>()
         {
-            return new ArrayMapFactory<K, V>();
+            return new ArrayMapFactory<L, W>();
         }
 
 
 
-        private class HashMapFactory<K, V> : MapFactory<K, V>
+        private class HashMapFactory<L, W> : MapFactory<L, W>
         {
-            public override Dictionary<K, V> NewMap()
+            public override Dictionary<L, W> NewMap()
             {
-                return new Dictionary<K, V>();
+                return new Dictionary<L, W>();
             }
 
-            public override Dictionary<K, V> NewMap(int initCapacity)
+            public override Dictionary<L, W> NewMap(int initCapacity)
             {
-                return new Dictionary<K, V>(initCapacity);
+                return new Dictionary<L, W>(initCapacity);
             }
 
-            public override Set<K> NewSet()
+            public override Set<L> NewSet()
             {
-                return new Set<K>();
+                return new Set<L>();
             }
 
             public override /*<K1, V1>*/ Dictionary<K1, V1> SetMap<K1, V1>(Dictionary<K1, V1> map)
@@ -240,22 +240,22 @@ namespace OpenNLP.Tools.Util
 
           } // end class TreeMapFactory*/
 
-        private class LinkedHashMapFactory<K, V> : MapFactory<K, V>
+        private class LinkedHashMapFactory<L, W> : MapFactory<L, W>
         {
-            public override Dictionary<K, V> NewMap()
+            public override Dictionary<L, W> NewMap()
             {
                 //return new LinkedHashDictionary<K,V>();
-                return new Dictionary<K, V>();
+                return new Dictionary<L, W>();
             }
 
-            public override Dictionary<K, V> NewMap(int initCapacity)
+            public override Dictionary<L, W> NewMap(int initCapacity)
             {
                 return NewMap();
             }
 
-            public override Set<K> NewSet()
+            public override Set<L> NewSet()
             {
-                return new HashSet<K>();
+                return new HashSet<L>();
             }
 
             public override /*<K1, V1>*/ Dictionary<K1, V1> SetMap<K1, V1>(Dictionary<K1, V1> map)
@@ -275,23 +275,23 @@ namespace OpenNLP.Tools.Util
         } // end class LinkedHashMapFactory
 
 
-        private class ArrayMapFactory<K, V> : MapFactory<K, V>
+        private class ArrayMapFactory<L, W> : MapFactory<L, W>
         {
-            public override Dictionary<K, V> NewMap()
+            public override Dictionary<L, W> NewMap()
             {
                 //return new ArrayDictionary<K,V>();
-                return new Dictionary<K, V>();
+                return new Dictionary<L, W>();
             }
 
-            public override Dictionary<K, V> NewMap(int initCapacity)
+            public override Dictionary<L, W> NewMap(int initCapacity)
             {
                 //return new ArrayDictionary<K,V>(initCapacity);
-                return new Dictionary<K, V>(initCapacity);
+                return new Dictionary<L, W>(initCapacity);
             }
 
-            public override Set<K> NewSet()
+            public override Set<L> NewSet()
             {
-                return new Set<K>();
+                return new Set<L>();
             }
 
             public override /*<K1, V1>*/ Dictionary<K1, V1> SetMap<K1, V1>(Dictionary<K1, V1> map)

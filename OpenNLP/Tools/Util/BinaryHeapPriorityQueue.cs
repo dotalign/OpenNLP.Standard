@@ -25,9 +25,9 @@ namespace OpenNLP.Tools.Util
         /// its current location (array position) and priority.
         /// uses ~ 8 (self) + 4 (key ptr) + 4 (index) + 8 (priority) = 24 bytes?
         /// </summary>
-        public sealed class Entry<E>
+        public sealed class Entry<F>
         {
-            public E key;
+            public F key;
             public int index;
             public double priority;
 
