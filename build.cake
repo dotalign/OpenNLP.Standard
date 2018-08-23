@@ -18,33 +18,6 @@ runner = runnerFactory.NewCoreRunner(Context);
 
 Warnings.DowngradePackagingWarnings();
 
-// *****************************************************************************
-// BlankDbEnsurer
-// copy blank Db to temp folder
-// *****************************************************************************
-Task("BlankDbEnsurer")
-    .Does(() => 
-    {
-
-      var destLocation = new System.IO.FileInfo(System.IO.Path.Combine(System.IO.Path.GetTempPath(), "Blank.dotdb3"));
-      if (!System.IO.File.Exists(destLocation.FullName)) 
-      {
-        var sqliteAssemblyPath = @".\Sqlite\Dot.Rdbms.Sqlite\bin\Release\net40\Dot.Rdbms.Sqlite.dll";
-        var dbResourceName = "Dot.Rdbms.Sqlite.Resources.Blank.dotdb3";
-        var assembly = System.Reflection.Assembly.LoadFrom(sqliteAssemblyPath);
-        
-        using (var resource = assembly.GetManifestResourceStream(dbResourceName))
-        {
-          using (var output = System.IO.File.OpenWrite(destLocation.FullName))
-          {
-            Information("Copying Blank db to temp folder.");
-            resource.CopyTo(output);
-          }
-        }
-      }
-
-    });
-
 
 Task("Default")
     .IsDependentOn("Information")
@@ -52,7 +25,6 @@ Task("Default")
     .IsDependentOn("Clean")
     .IsDependentOn("Build")
     .IsDependentOn("CodeSign")
-    .IsDependentOn("BlankDbEnsurer")
     .IsDependentOn("Test")
     .IsDependentOn("Package")
     .IsDependentOn("Publish")
