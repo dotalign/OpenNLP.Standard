@@ -115,11 +115,11 @@ namespace OpenNLP.Tools.Trees.TRegex
                     basicCatFunction.Apply, headFinder);
                 pattern = parser.Root();
             }
-            catch (TokenMgrException tme)
+            catch (TokenMgrException)
             {
                 throw new TregexParseException("Could not parse " + tregex /*, tme*/);
             }
-            catch (ParseException e)
+            catch (ParseException)
             {
                 throw new TregexParseException("Could not parse " + tregex /*, e*/);
             }

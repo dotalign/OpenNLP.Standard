@@ -418,7 +418,7 @@ namespace OpenNLP.Tools.Trees.TRegex
             {
                 result = TregexPatternCompiler.defaultCompiler.Compile(tregex);
             }
-            catch (TregexParseException ex)
+            catch (TregexParseException)
             {
                 if (verbose)
                 {

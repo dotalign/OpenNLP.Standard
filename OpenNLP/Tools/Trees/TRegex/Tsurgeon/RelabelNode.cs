@@ -211,7 +211,6 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
 
         public override string ToString()
         {
-            string result;
             switch (mode)
             {
                 case RelabelMode.Fixed:

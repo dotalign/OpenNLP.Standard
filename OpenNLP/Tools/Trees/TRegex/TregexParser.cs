@@ -789,7 +789,7 @@ namespace OpenNLP.Tools.Trees.TRegex
             {
                 return !Jj_3_1();
             }
-            catch (LookaheadSuccess ls)
+            catch (LookaheadSuccess)
             {
                 return true;
             }
@@ -807,7 +807,7 @@ namespace OpenNLP.Tools.Trees.TRegex
             {
                 return !Jj_3_2();
             }
-            catch (LookaheadSuccess ls)
+            catch (LookaheadSuccess)
             {
                 return true;
             }
@@ -1395,7 +1395,7 @@ namespace OpenNLP.Tools.Trees.TRegex
                         p = p.next;
                     } while (p != null);
                 }
-                catch (LookaheadSuccess ls)
+                catch (LookaheadSuccess)
                 {
                 }
             }

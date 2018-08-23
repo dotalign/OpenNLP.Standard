@@ -243,12 +243,8 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             return t;
         }
 
-        /// <summary>Hack-in field for seeing whether there was a match</summary>
-        private static bool matchedOnTree;
-
         public static Tree ProcessPatternsOnTree(List<Tuple<TregexPattern, TsurgeonPattern>> ops, Tree t)
         {
-            matchedOnTree = false;
             foreach (Tuple<TregexPattern, TsurgeonPattern> op in ops)
             {
                 try
@@ -257,7 +253,6 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                     TsurgeonMatcher tsm = op.Item2.GetMatcher();
                     while (m.Find())
                     {
-                        matchedOnTree = true;
                         t = tsm.Evaluate(t, m);
                         if (t == null)
                         {

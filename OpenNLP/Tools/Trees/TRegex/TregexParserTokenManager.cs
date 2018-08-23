@@ -146,7 +146,7 @@ namespace OpenNLP.Tools.Trees.TRegex
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch (IOException e)
+            catch (IOException)
             {
                 JjStopStringLiteralDfa_0(1, active0);
                 return 2;
@@ -169,7 +169,7 @@ namespace OpenNLP.Tools.Trees.TRegex
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch (IOException e)
+            catch (IOException)
             {
                 JjStopStringLiteralDfa_0(2, active0);
                 return 3;
@@ -194,7 +194,7 @@ namespace OpenNLP.Tools.Trees.TRegex
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch (IOException e)
+            catch (IOException)
             {
                 return pos + 1;
             }
@@ -673,7 +673,7 @@ namespace OpenNLP.Tools.Trees.TRegex
                 {
                     CurChar = InputStream.ReadChar();
                 }
-                catch (IOException e)
+                catch (IOException)
                 {
                     return curPos;
                 }
@@ -760,7 +760,7 @@ namespace OpenNLP.Tools.Trees.TRegex
                 {
                     CurChar = InputStream.BeginToken();
                 }
-                catch (IOException e)
+                catch (IOException)
                 {
                     jjmatchedKind = 0;
                     jjmatchedPos = -1;
@@ -774,7 +774,7 @@ namespace OpenNLP.Tools.Trees.TRegex
                     while (CurChar <= 32 && (0x100002000L & (1L << CurChar)) != 0L)
                         CurChar = InputStream.BeginToken();
                 }
-                catch (IOException e1)
+                catch (IOException)
                 {
                     //continue EOFLoop;
                     goto start_EOF_loop;
@@ -807,7 +807,7 @@ namespace OpenNLP.Tools.Trees.TRegex
                     InputStream.ReadChar();
                     InputStream.Backup(1);
                 }
-                catch (IOException e1)
+                catch (IOException)
                 {
                     EOFSeen = true;
                     error_after = curPos <= 1 ? "" : InputStream.GetImage();

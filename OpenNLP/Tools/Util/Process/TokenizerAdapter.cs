@@ -58,7 +58,7 @@ namespace OpenNLP.Tools.Util.Process
                         return new string(t);
                 }
             }
-            catch (IOException ioe)
+            catch (IOException)
             {
                 // do nothing, return null
                 return null;

@@ -328,22 +328,18 @@ namespace OpenNLP.Tools.Ling
         /// </summary>
         public override int GetHashCode()
         {
-            bool sensible = false;
             int result = 0;
             if (Get(typeof (CoreAnnotations.DocIdAnnotation)) != null)
             {
                 result = Get(typeof (CoreAnnotations.DocIdAnnotation)).GetHashCode();
-                sensible = true;
             }
             if (Has(typeof (CoreAnnotations.SentenceIndexAnnotation)))
             {
                 result = 29*result + Get(typeof (CoreAnnotations.SentenceIndexAnnotation)).GetHashCode();
-                sensible = true;
             }
             if (Has(typeof (CoreAnnotations.IndexAnnotation)))
             {
                 result = 29*result + Get(typeof (CoreAnnotations.IndexAnnotation)).GetHashCode();
-                sensible = true;
             }
             return result;
         }

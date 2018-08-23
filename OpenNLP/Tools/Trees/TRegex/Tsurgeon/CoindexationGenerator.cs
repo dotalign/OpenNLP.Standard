@@ -37,7 +37,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                         {
                             thisIndex = int.Parse(m.Groups[1].Value);
                         }
-                        catch (FormatException e)
+                        catch (FormatException)
                         {
                             // Ignore this exception.  This kind of exception can
                             // happen if there are nodes that happen to have the

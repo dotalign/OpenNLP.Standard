@@ -67,7 +67,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return 1;
             }
@@ -103,7 +103,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return 2;
             }
@@ -145,7 +145,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return 3;
             }
@@ -180,7 +180,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return 4;
             }
@@ -218,7 +218,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return 5;
             }
@@ -261,7 +261,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return 6;
             }
@@ -303,7 +303,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return 7;
             }
@@ -324,7 +324,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return 8;
             }
@@ -345,7 +345,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return 9;
             }
@@ -366,7 +366,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return 10;
             }
@@ -387,7 +387,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return 11;
             }
@@ -408,7 +408,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return 12;
             }
@@ -463,7 +463,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return pos + 1;
             }
@@ -1033,7 +1033,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                 {
                     CurChar = InputStream.ReadChar();
                 }
-                catch ( IOException e)
+                catch ( IOException)
                 {
                     return curPos;
                 }
@@ -1075,7 +1075,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException)
             {
                 return pos + 1;
             }
@@ -1169,7 +1169,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                 {
                     CurChar = InputStream.ReadChar();
                 }
-                catch ( IOException e)
+                catch ( IOException)
                 {
                     return curPos;
                 }
@@ -1274,7 +1274,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                                 while (CurChar <= 32 && (0x100002400L & (1L << CurChar)) != 0L)
                                     CurChar = InputStream.BeginToken();
                             }
-                            catch ( IOException e1)
+                            catch ( IOException)
                             {
                                 //continue EOFLoop;
                                 goto beginning_eof_loop;
@@ -1290,7 +1290,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                                 while (CurChar <= 32 && (0x100002400L & (1L << CurChar)) != 0L)
                                     CurChar = InputStream.BeginToken();
                             }
-                            catch ( IOException e1)
+                            catch ( IOException)
                             {
                                 //continue EOFLoop;
                                 goto beginning_eof_loop;
@@ -1306,7 +1306,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                                 while (CurChar <= 32 && (0x100002600L & (1L << CurChar)) != 0L)
                                     CurChar = InputStream.BeginToken();
                             }
-                            catch ( IOException e1)
+                            catch ( IOException)
                             {
                                 //continue EOFLoop;
                                 goto beginning_eof_loop;
@@ -1345,7 +1345,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                         InputStream.ReadChar();
                         InputStream.Backup(1);
                     }
-                    catch ( IOException e1)
+                    catch ( IOException)
                     {
                         eofSeen = true;
                         errorAfter = curPos <= 1 ? "" : InputStream.GetImage();

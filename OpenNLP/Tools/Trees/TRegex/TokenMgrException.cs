@@ -21,11 +21,6 @@ namespace OpenNLP.Tools.Trees.TRegex
         public static readonly int InvalidLexicalState = 2;
 
         /// <summary>
-        /// Detected (and bailed out of) an infinite loop in the token manager.
-        /// </summary>
-        private static readonly int LoopDetected = 3;
-
-        /// <summary>
         /// Indicates the reason why the exception is thrown. 
         /// It will have one of the above 4 values.
         /// </summary>

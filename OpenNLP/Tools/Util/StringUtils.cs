@@ -20,11 +20,6 @@ namespace OpenNLP.Tools.Util
     public static class StringUtils
     {
         public static readonly string[] EMPTY_STRING_ARRAY = new string[0];
-        private static readonly string PROP = "prop";
-        private static readonly string PROPS = "props";
-        private static readonly string PROPERTIES = "properties";
-        private static readonly string ARGS = "args";
-        private static readonly string ARGUMENTS = "arguments";
         
         /// <summary>
         /// Say whether this regular expression can be found inside this string.

@@ -133,7 +133,7 @@ namespace OpenNLP.Tools.Trees
                 {
                     t = GetTreeFromInputStream();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     throw new IOException("End of token stream encountered before parsing could complete.");
                 }
