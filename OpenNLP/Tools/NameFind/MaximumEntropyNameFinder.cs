@@ -183,7 +183,7 @@ namespace OpenNLP.Tools.NameFind
 		    SharpEntropy.ITrainingEventReader eventReader =
 		        new NameFinderEventReader(
 		            new SharpEntropy.PlainTextByLineDataReader(
-		                new System.IO.StreamReader(new FileStream(trainingFile, FileMode.OpenOrCreate))));
+		                new System.IO.StreamReader(new FileStream(trainingFile, FileMode.OpenOrCreate, FileAccess.Read))));
 #endif
             return Train(eventReader, iterations, cutoff);
 		}

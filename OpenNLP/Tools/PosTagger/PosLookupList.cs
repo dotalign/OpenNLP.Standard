@@ -65,7 +65,7 @@ namespace OpenNLP.Tools.PosTagger
 		{
 		}
 #else
-        public PosLookupList(string file, bool caseSensitive) : this(new System.IO.StreamReader(new FileStream(file, FileMode.OpenOrCreate), System.Text.Encoding.UTF7), caseSensitive)
+        public PosLookupList(string file, bool caseSensitive) : this(new System.IO.StreamReader(new FileStream(file, FileMode.OpenOrCreate, FileAccess.Read), System.Text.Encoding.UTF7), caseSensitive)
         {
         }
 #endif

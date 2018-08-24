@@ -277,7 +277,7 @@ namespace OpenNLP.Tools.PosTagger
 #if DNF
             SharpEntropy.ITrainingEventReader eventReader = new PosEventReader(new StreamReader(trainingFile));
 #else
-            SharpEntropy.ITrainingEventReader eventReader = new PosEventReader(new StreamReader(new FileStream(trainingFile, FileMode.OpenOrCreate)));
+            SharpEntropy.ITrainingEventReader eventReader = new PosEventReader(new StreamReader(new FileStream(trainingFile, FileMode.OpenOrCreate, FileAccess.Read)));
 #endif
             return Train(eventReader, iterations, cutoff);
 		}

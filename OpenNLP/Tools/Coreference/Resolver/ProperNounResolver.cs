@@ -102,8 +102,8 @@ namespace OpenNLP.Tools.Coreference.Resolver
 #else
 			    str =
 			        new StreamReader(
-			            new StreamReader(new FileStream(name, FileMode.OpenOrCreate), Encoding.GetEncoding(0)).BaseStream,
-			            new StreamReader(new FileStream(name, FileMode.OpenOrCreate), Encoding.GetEncoding(0)).CurrentEncoding);
+			            new StreamReader(new FileStream(name, FileMode.OpenOrCreate, FileAccess.Read), Encoding.GetEncoding(0)).BaseStream,
+			            new StreamReader(new FileStream(name, FileMode.OpenOrCreate, FileAccess.Read), Encoding.GetEncoding(0)).CurrentEncoding);
 #endif
                 //}
                 string line;

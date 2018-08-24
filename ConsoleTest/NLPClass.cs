@@ -8,9 +8,9 @@ namespace OpenNLP.ConsoleApp2
         private MaximumEntropySentenceDetector _sentenceDetector;
         private readonly string _modelPath;
 
-        public NLPClass()
+        public NLPClass(DirectoryInfo modelPath)
         {
-            _modelPath = Directory.GetParent(Directory.GetCurrentDirectory()) + "\\Resources\\Models\\";
+            _modelPath = modelPath.FullName;
             
         }
 
@@ -23,7 +23,7 @@ namespace OpenNLP.ConsoleApp2
         {
             if (_sentenceDetector == null)
             {
-                _sentenceDetector = new EnglishMaximumEntropySentenceDetector(_modelPath + "EnglishSD.nbin");
+                _sentenceDetector = new EnglishMaximumEntropySentenceDetector(Path.Combine(_modelPath, "EnglishSD.nbin"));
             }
 
             return _sentenceDetector.SentenceDetect(paragraph);
