@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using OpenNLP.ConsoleApp2;
 
 namespace ConsoleTest
@@ -7,8 +8,10 @@ namespace ConsoleTest
     {
         public static void Main(string[] args)
         {
+            var modelPath = new DirectoryInfo(@"C:\DotAlign\Code\OpenNLP.Standard1\Resources\Models");
+
             string str = ".NET Framework (pronounced dot net) is a software framework developed by Microsoft that runs primarily on Microsoft Windows. It includes a large class library known as Framework Class Library (FCL) and provides language interoperability (each language can use code written in other languages) across several programming languages. Programs written for .NET Framework execute in a software environment (as contrasted to hardware environment) known as Common Language Runtime (CLR), an application virtual machine that provides services such as security, memory management, and exception handling. (As such, computer code written using .NET Framework is called 'managed code'.) FCL and CLR together constitute .NET Framework.";
-            var arr = new NLPClass().Split(str);
+            var arr = new NLPClass(modelPath).Split(str);
             foreach (var s in arr)
             {
                 Console.WriteLine(s);

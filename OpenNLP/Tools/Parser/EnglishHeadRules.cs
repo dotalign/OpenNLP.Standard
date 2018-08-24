@@ -153,7 +153,7 @@ namespace OpenNLP.Tools.Parser
 #if DNF
             using (var headRulesStreamReader = new StreamReader(file, System.Text.Encoding.UTF7))
 #else
-            using (var stream = new FileStream(file, FileMode.OpenOrCreate))
+            using (var stream = new FileStream(file, FileMode.OpenOrCreate, FileAccess.Read))
             using (var headRulesStreamReader = new StreamReader(stream, System.Text.Encoding.UTF7))
 #endif
             {

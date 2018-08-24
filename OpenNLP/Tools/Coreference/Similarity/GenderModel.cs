@@ -237,7 +237,7 @@ namespace OpenNLP.Tools.Coreference.Similarity
 #if DNF
             var nameReader = new StreamReader(nameFile, System.Text.Encoding.Default);
 #else
-            var stream = new FileStream(nameFile, FileMode.OpenOrCreate);
+            var stream = new FileStream(nameFile, FileMode.OpenOrCreate, FileAccess.Read);
             var nameReader = new StreamReader(stream, System.Text.Encoding.GetEncoding(0));
 #endif
             for (string line = nameReader.ReadLine(); line != null; line = nameReader.ReadLine())

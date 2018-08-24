@@ -263,7 +263,7 @@ namespace OpenNLP.Tools.SentenceDetect
 #if DNF
             var readers = filePaths.Select(path => new StreamReader(path)).ToList();
 #else
-            var readers = filePaths.Select(path => new StreamReader(new FileStream(path, FileMode.OpenOrCreate))).ToList();
+            var readers = filePaths.Select(path => new StreamReader(new FileStream(path, FileMode.OpenOrCreate, FileAccess.Read))).ToList();
 #endif
 
             // train the model

@@ -682,7 +682,7 @@ namespace OpenNLP.Tools.Parser
 		    SharpEntropy.ITrainingEventReader eventReader =
 		        new ParserEventReader(
 		            new SharpEntropy.PlainTextByLineDataReader(
-		                new StreamReader(new FileStream(trainingFile, FileMode.OpenOrCreate))), rules, modelType);
+		                new StreamReader(new FileStream(trainingFile, FileMode.OpenOrCreate, FileAccess.Read))), rules, modelType);
 #endif
             return Train(eventReader, iterations, cutoff);
 		}
