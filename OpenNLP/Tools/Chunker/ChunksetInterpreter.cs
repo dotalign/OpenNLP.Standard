@@ -28,7 +28,13 @@ namespace OpenNLP.Tools.Chunker
             SentenceChunk currentSentenceChunk = null;
             for (int currentChunk = 0, chunkCount = chunks.Length; currentChunk < chunkCount; currentChunk++)
             {
-                if (chunks[currentChunk].StartsWith("B-") || chunks[currentChunk] == "O")
+                if (
+                    // Per https://opennlp.apache.org/docs/1.5.3/manual/opennlp.html
+                    // it seems like B- is expected when it's the first chunk. 
+                    // But in practice with "Awesome!" it returns "I-NP as the first chunk". 
+                    (currentChunk == 0 && chunks[currentChunk].StartsWith("I-")) ||
+                    chunks[currentChunk].StartsWith("B-") || 
+                    chunks[currentChunk] == "O")
                 {
                     if (currentSentenceChunk != null)
                     {
