@@ -13,8 +13,7 @@ runner = runnerFactory.NewCoreRunner(Context);
 // *****************************************************************************
 // Startup
 // *****************************************************************************
-#addin nuget:?package=Cake.Git&version=0.16.1
-#load nuget:?package=Dot.Cake.Recipe&version=1.0.135
+#load nuget:?package=Dot.Cake.Recipe&version=2.0.243
 
 Warnings.DowngradePackagingWarnings();
 
@@ -27,7 +26,7 @@ Task("Default")
     .IsDependentOn("CodeSign")
     .IsDependentOn("Test")
     .IsDependentOn("Package")
-    .IsDependentOn("Publish")
+    .IsDependentOn("NuGetPublish")
     .Does(() =>
 {
     Information("Build successfully completed");
